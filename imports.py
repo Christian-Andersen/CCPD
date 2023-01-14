@@ -14,14 +14,14 @@ def create_model(num_classes, load):
     in_features = model.roi_heads.box_predictor.cls_score.in_features  # type:ignore
     model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
     if load:
-        model.load_state_dict(torch.load('box_model.pt'))
+        model.load_state_dict(torch.load('../models/CCPD/box_model.pt'))
     return model
 
 def plate_model(load=False):
     model = efficientnet_b0(weights='DEFAULT')
     model.classifier[1] = nn.Linear(in_features=1280, out_features=234, bias=True)
     if load:
-        model.load_state_dict(torch.load('plate_model.pt'))
+        model.load_state_dict(torch.load('../models/CCPD/plate_model.pt'))
     return model
 
 class CCPDDataset(Dataset):

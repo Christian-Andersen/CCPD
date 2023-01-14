@@ -38,9 +38,9 @@ def main():
             loss.backward() #type:ignore
             optimizer.step()
             if batch_idx%100==0:
-                torch.save(model.state_dict(), 'box_model.pt')
+                torch.save(model.state_dict(), '../models/CCPD/box_model.pt')
                 print("Loss: {:.4f}\t[{:.2%}]".format(loss, batch_idx/len(loader)))
-                torch.save(model.state_dict(), 'box_model2.pt')
+                torch.save(model.state_dict(), '../models/CCPD/box_model2.pt')
 
 
 if __name__ == '__main__':

@@ -50,9 +50,9 @@ def main():
             loss.backward()
             optimizer.step()
             if batch_idx%100==0:
-                torch.save(model.state_dict(), 'plate_model.pt')
+                torch.save(model.state_dict(), '../models/CCPD/plate_model.pt')
                 print("Loss: {:.4f}\t[{:.2%}]".format(loss, batch_idx/len(loader)))
-                torch.save(model.state_dict(), 'plate_model2.pt')
+                torch.save(model.state_dict(), '../models/CCPD/plate_model2.pt')
 
 
 if __name__ == '__main__':
